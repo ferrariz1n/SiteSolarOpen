@@ -1,0 +1,27 @@
+{
+  "name": "site_solar_open",
+  "version": "1.0.0",
+  "description": "Sistema de monitoração e comercialização de creditos de energia",
+  "main": "server.js",
+  "scripts": {
+    "device": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.6.2",
+    "mongoose": "^8.4.0",
+    "slug": "^9.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "engines":{
+    "node:": "20.x"
+  }
+}
