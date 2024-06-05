@@ -6,7 +6,7 @@ const app = express()
 app.use(bodyParser.json())
 const api = require('./rotas/')
 app.use('/api', api)
-const PORT = 3000
+const PORT = 3080
 
 console.log(process.env.MONGO_PASS)
 
