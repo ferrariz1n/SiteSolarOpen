@@ -1,17 +1,10 @@
 import React from 'react'
-
-const Teste = ()=>{
-  fetch('/api')
-    .then(resultado =>{
-      console.log(resultado)
-    })
-}
+import Bemvindo from './paginas/bemvindo'
 
 function App(){
   return(
     <div>
-      {Teste()}
-      <h1>Olá</h1>
+      <Bemvindo/>
     </div>
   )
 }
