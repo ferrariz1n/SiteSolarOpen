@@ -1,5 +1,5 @@
 import React from 'react'
-import Bemvindo from './paginas/bemvindo'
+import Bemvindo from '../paginas/Bemvindo'
 
 function App(){
   return(
