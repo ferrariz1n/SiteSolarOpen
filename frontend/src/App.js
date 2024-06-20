@@ -1,13 +1,24 @@
 import React from 'react'
-import Bemvindo from './paginas/bemvindo'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Bemvindo from './paginas/Bemvindo'
 import EstilosGlobais from './componentes/EstilosGlobais'
+import Medidas from './paginas/Medidas'
+import Mensagens from './paginas/Mensagens'
+import Admin from './paginas/Admin'
+import Menu from './componentes/Menu'
 
 function App(){
   return(
-    <div>
+    <Router>
       <EstilosGlobais/>
-      <Bemvindo/>
-    </div>
+      <Menu/>
+      <Routes>
+        <Route path='/' element = {<Bemvindo />}/>
+        <Route path='/medidas' element = {<Medidas />}/>
+        <Route path='/admin' element = {<Admin />}/>
+        <Route path='/mensagens' element = {<Mensagens />}/>
+      </Routes>
+    </Router>
   )
 }
 export default App
