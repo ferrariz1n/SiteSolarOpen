@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const Device = require('../model/Devices')
+const Device = require('../models/Devices')
 
 router.get('/', async (req, res)=>{
     try{
@@ -17,9 +17,29 @@ router.get('/', async (req, res)=>{
     }
 })
 
+router.get('/detalhes/:id', async (req, res)=>{
+    try{
+        const deviceId = await Device.findById({
+            _id:req.params.id
+        })
+        res.json({
+            success:true,
+            message: deviceId
+        })
+    }
+    catch{
+        res.json({
+            success: false,
+            message: "Não poi possivel listar os devices."
+        })
+    }
+})
+
 router.post('/', async (req, res)=>{
     const novoDevice = new Device({
         nome: req.body.nome,
+        email: req.body.email,
+        imagem: req.body.imagem,
         kwh: req.body.kwh,
         corrente: req.body.corrente,
         voltagem:req.body.voltagem,
