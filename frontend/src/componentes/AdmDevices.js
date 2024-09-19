@@ -7,7 +7,7 @@ import {useApi} from '../hooks/useApi';
 import moment from 'moment';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
-import { Modal } from 'react-bootstrap';
+import ModalDelete from './ModalDelete';
 
 const Foto = styled(Image)`
     height: 100px;
@@ -38,13 +38,14 @@ function AdmDevices() {
                             <td>{moment(item.data).format('DD-MM-AAAA')}</td>
                             <td>
                                 <Button variant="info">Editar</Button>&nbsp;&nbsp;
-                                <Button variant="danger">Deletar</Button>
+                                <Button variant="danger" onClick={()=>setShow(true)}>Deletar</Button>
                             </td>
                         </tr>
                         )
                     })}
                 </tbody>
             </Table>
+            <ModalDelete show={show} setShow={setShow}/>
     </Container>
   )
 }
