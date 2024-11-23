@@ -1,6 +1,6 @@
-import {createGlobalStyle} from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
-const EstilosGlobais = createGlobalStyle `
+const EstilosGlobais = createGlobalStyle`
     *{
         box-sizing: border-box;
         margin: 0;
@@ -14,6 +14,22 @@ const EstilosGlobais = createGlobalStyle `
     }
 
     button{
+        font-weight: bold;
+        font-size: 1.1rem;
+        cursor: pointer;
+        padding: 1rem 2rem;
+        background: #0B4C5F;
+        color: white;
+        border: 3px solid white;
+        transition: all 0.5s ease;
+        &:hover{
+            background-color: black;
+            color: white;
+        }
+    }
+
+    a.contact-us-btn{
+        text-decoration: none;
         font-weight: bold;
         font-size: 1.1rem;
         cursor: pointer;
@@ -52,4 +68,4 @@ const EstilosGlobais = createGlobalStyle `
         font-weight: bold;
     }
 `;
-export default EstilosGlobais
+export default EstilosGlobais;

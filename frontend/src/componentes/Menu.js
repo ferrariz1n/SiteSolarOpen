@@ -1,11 +1,10 @@
-import React from 'react'
-import Userfront from '@userfront/react'
-import { LogoutButton } from './autentica/Autenticacao';
-import Styled from 'styled-components'
-import {Link} from 'react-router-dom'
+import React from "react";
+import Userfront from "@userfront/react";
+import { LogoutButton } from "./autentica/Autenticacao";
+import Styled from "styled-components";
+import { Link } from "react-router-dom";
 
-
-Userfront.init("qbjqg94n")
+Userfront.init("qbjqg94n");
 
 const StyledNav = Styled.nav`
     background: #58617B;
@@ -40,30 +39,48 @@ const StyledNav = Styled.nav`
 
 `;
 
-const Menu = ()=>{
-    return(
-        <StyledNav>
-            <h1>Solar Open</h1>
-            <ul>
-                <li><Link to='/'>Bem vindo</Link></li>
-                <li><Link to='/Mensagens'>Mensagens</Link></li>
-                {!Userfront.accessToken() && (
-                        <>
-                            <li><Link to='/login'>Login</Link></li>
-                            <li><Link to='/cadastro'>Cadastro</Link></li>
-                        </>
-                )}
-                {Userfront.accessToken() && (
-                        <>
-                            <li><Link to='/Medidas'>Medidas</Link></li>
-                            <li><Link to='/Admin'>Administração</Link></li>
-                            <li><Link to='/logout'><LogoutButton/></Link></li>
-                        </>
-                )}
-                
-            </ul>
-        </StyledNav>
-    )
-}
-export default Menu
-
+const Menu = () => {
+	return (
+		<StyledNav>
+			<h1>
+				<a href="/" style={{ fontSize: "inherit", textDecoration: "none" }}>
+					Solar Open
+				</a>
+			</h1>
+			<ul>
+				<li>
+					<Link to="/">Início</Link>
+				</li>
+				<li>
+					<Link to="/FaleConosco">Fale Conosco</Link>
+				</li>
+				{!Userfront.accessToken() && (
+					<>
+						<li>
+							<Link to="/login">Login</Link>
+						</li>
+						<li>
+							<Link to="/cadastro">Cadastro</Link>
+						</li>
+					</>
+				)}
+				{Userfront.accessToken() && (
+					<>
+						<li>
+							<Link to="/Medidas">Medidas</Link>
+						</li>
+						<li>
+							<Link to="/Admin">Administração</Link>
+						</li>
+						<li>
+							<Link to="/logout">
+								<LogoutButton />
+							</Link>
+						</li>
+					</>
+				)}
+			</ul>
+		</StyledNav>
+	);
+};
+export default Menu;

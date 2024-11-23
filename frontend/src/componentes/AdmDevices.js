@@ -3,11 +3,11 @@ import Container from "react-bootstrap/esm/Container";
 import Table from "react-bootstrap/esm/Table";
 import Image from "react-bootstrap/Image";
 import styled from "styled-components";
-import { useApi } from "hooks/useApi";
+import { useApi } from "../hooks/useApi";
 import moment from "moment";
 import Button from "react-bootstrap/Button";
-import CaixaDialogo from "componentes/CaixaDialogo";
-import FormEdit from "componentes/formEdit";
+import CaixaDialogo from "./CaixaDialogo";
+import FormEdit from "./FormEdit";
 
 import { set } from "mongoose";
 
