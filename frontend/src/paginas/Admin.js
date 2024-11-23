@@ -5,6 +5,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import ListaDevices from "./ListaDevices";
 import Container from "react-bootstrap/Container";
 import AdmDevices from "../componentes/AdmDevices";
+import FormEdit from "../componentes/formEdit";
 
 const Descricao = styled.div`
     flex: 1;
