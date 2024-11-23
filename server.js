@@ -7,6 +7,7 @@ app.use(bodyParser.json())
 const api = require('./rotas/')
 app.use('/api', api)
 
+// Todo código precisa ficar depois das rotas conhecidas
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('frontend/build'))
 
@@ -16,5 +17,5 @@ if(process.env.NODE_ENV === 'production'){
     })
 }
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT
 app.listen(PORT)

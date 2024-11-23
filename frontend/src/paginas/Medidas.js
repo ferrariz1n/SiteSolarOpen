@@ -1,32 +1,43 @@
-import React from 'react';
-import styled from 'styled-components';
-import Cards from '../componentes/Cards';
-import {useApi} from '../hooks/useApi';
+import React from 'react'
+import styled  from 'styled-components'
+import Card from "../componentes/Cards"
+import Userfront from '@userfront/react'
+import {useApi} from '../hooks/useApi'
+import jwtDecode from 'jwt-decode'
 
-const ListaCards = styled.div`
+Userfront.init("qbjqg94n")
+
+const Listacards = styled.div`
     display: grid;
-    grid-template-columns: 200px repeat(auto-fill, 200px);
+    grid-template-columns: 200px repeat(auto-fill, 200px);  
     grid-column-gap: 3rem;
     grid-row-gap: 3rem;
 `;
 
-const ListaDevices = styled.div`
+const Listadevices = styled.div`
     min-height: 30vh;
     overflow: hidden;
     padding: 5rem 10rem;
 `;
 
+if(!Userfront.accessToken()){
+    localStorage.setItem('us', ' ')
+} 
+
 const Medidas = ()=>{
-    const {data} = useApi('/devices')
-    console.log(data)
+    const userData = jwtDecode(Userfront.idToken())
+    const email = userData.email
+    const {data} = useApi(`/devices/${email}`)
     return(
-        <ListaDevices>
-            <ListaCards>
-                {data?.data?.message?.map(projeto=>{
-                    return(<Cards key = {projeto._id}projeto={projeto}/>)
+        <Listadevices>
+            <Listacards>
+                {data?.message?.map(projeto =>{
+                    return(<Card key={projeto._id} projeto={projeto}/>)
                 })}
-            </ListaCards>
-        </ListaDevices>
-    ) 
+            </Listacards>
+        </Listadevices>
+    )
 }
 export default Medidas
+
+

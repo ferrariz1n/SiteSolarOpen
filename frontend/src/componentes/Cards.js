@@ -56,7 +56,7 @@ const Info = styled.div`
     text-decoration: none;
 `;
 
-const Cards = ({projeto})=>{
+const Card = ({projeto})=>{
     console.log(projeto)
     var ultimo = projeto.medidas.length
     console.log(ultimo)
@@ -80,4 +80,5 @@ const Cards = ({projeto})=>{
         </StyledCard>
     )
 }
-export default Cards
+export default Card 
+

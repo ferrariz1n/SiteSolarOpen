@@ -1,8 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import {useParams} from 'react-router-dom'
 import { useApi } from '../hooks/useApi';
 import {Container, Table} from "react-bootstrap"
+//import moment from 'moment'
+//import jwtDecode from 'jwt-decode'
+//import Userfront from '@userfront/react'
+
+//Userfront.init("qbjqg94n")
 
 const Titulo = styled.div`
     h4{

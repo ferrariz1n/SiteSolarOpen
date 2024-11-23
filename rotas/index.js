@@ -1,14 +1,41 @@
+
 const router = require('express').Router()
-require('../mongoDB/mongoconn')
+require('../DB/mongodb')
 
 const devices = require('./devices')
 router.use('/devices', devices)
 
-router.get('/', (req, res) => {
+router.get('/', (req, res)=>{
     res.json({
         success: false,
-        message: "Este é acesso reservado"
+        message: "Este é uma acesso reservado"
     })
 })
 
-module.exports = router;
+module.exports = router
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
