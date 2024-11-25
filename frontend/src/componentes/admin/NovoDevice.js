@@ -109,7 +109,7 @@ const NovoDevice = () => {
 						</Form.Control.Feedback>
 					</InputGroup>
 				</Form.Group>
-				<Button className="mt-2" type="submit">
+				<Button className="mt-2 btn-submit-form" type="submit">
 					Adicionar novo dispositivo
 				</Button>
 			</Form>

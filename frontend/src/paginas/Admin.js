@@ -1,78 +1,94 @@
-import React, {useEffect} from 'react'
-import styled  from 'styled-components'
-import {Container, Tabs, Tab} from "react-bootstrap"
-import ListaDevices from '../componentes/admin/ListaDevices';
-import AdmDevices from '../componentes/admin/AdmDevices';
-import NovoDevice from '../componentes/admin/NovoDevice'
-import {useNavigate} from 'react-router-dom'
-import Userfront from '@userfront/react'
-import jwtDecode from 'jwt-decode'
+import React, { useEffect } from "react";
+import styled from "styled-components";
+import { Container, Tabs, Tab, Col, Nav, Row } from "react-bootstrap";
+import ListaDevices from "../componentes/admin/ListaDevices";
+import AdmDevices from "../componentes/admin/AdmDevices";
+import NovoDevice from "../componentes/admin/NovoDevice";
+import { useNavigate } from "react-router-dom";
+import Userfront from "@userfront/react";
+import jwtDecode from "jwt-decode";
 
-Userfront.init("qbjqg94n")
+Userfront.init("qbjqg94n");
 
-const Descricao = styled.div`
-    flex: 1;
-    padding-right: 5rem;
-    padding-top: 1rem;
-    background-color: black;
-    z-index: 5;
-    h1{
-        padding-left: 1rem;
-        font-weight: bold;
-        color: yellow;
-    }
+const PageTitle = styled.h1`
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	font-weight: bold;
+	// color: yellow;
+	color: #ffd159;
+	text-align: center;
 `;
 
- const Geral = styled.div`
-    h5{
-        padding-left: 2rem;
-        color: yellow;
-        font-weight: bold;
-    }
- `;
+const Geral = styled.div`
+	h5 {
+		padding-left: 2rem;
+		// color: yellow;
+		color: #ffd159;
+		font-weight: bold;
+	}
 
- 
-const Admin = ({location})=>{
-    let navigate = useNavigate();
-    useEffect(() => {
-        if (!Userfront.accessToken()){
-            localStorage.setItem('us', ' ')
-            return navigate("/login")
-        }
-    })
-    const acessoData = jwtDecode(Userfront.accessToken())
-    const acesso = JSON.stringify(acessoData)
-    console.log(acesso)
-    const userData = jwtDecode(Userfront.idToken())
-    const user = JSON.stringify(userData)
-    console.log(user)
+	.nav-item .nav-link {
+		color: #ffd159;
+		cursor: pointer;
+	}
 
-    return(
-        <Geral>
-            <Container>
-                <Descricao>
-                    <h1>
-                        Área Administrativa
-                    </h1>
-                </Descricao>
-            </Container>
-            <div>
-                <Tabs defaultActiveKey="devices" id="tab1" className="mb-1">
-                    <Tab eventKey="devices" title="Meus Devices">
-                        <ListaDevices/>
-                    </Tab>
-                    <Tab eventKey="detalhes" title="Detalhes">
-                        <AdmDevices/>
-                    </Tab>
-                    <Tab eventKey="novo" title="Novo Device">
-                        <NovoDevice/>
-                    </Tab>
-                    <Tab eventKey="email" title="User Logado">
-                        <h5>{userData.email}</h5>
-                    </Tab>
-                </Tabs>
-            </div>
-      </Geral>
-    )
-}
-export default Admin
+	.nav-item .nav-link:hover {
+		color: #b3923e;
+	}
+
+	.nav-item .nav-link.active {
+		background: #ffd159;
+		color: #252128;
+	}
+`;
+
+const Admin = ({ location }) => {
+	let navigate = useNavigate();
+	useEffect(() => {
+		if (!Userfront.accessToken()) {
+			localStorage.setItem("us", " ");
+			return navigate("/login");
+		}
+	});
+
+	return (
+		<Geral>
+			<Container>
+				<PageTitle>Dispositivos</PageTitle>
+			</Container>
+			<div>
+				<Tab.Container id="left-tabs-example" defaultActiveKey="devices">
+					<Row>
+						<Col sm={2}>
+							<Nav variant="pills" className="flex-column">
+								<Nav.Item>
+									<Nav.Link eventKey="devices">Meus Devices</Nav.Link>
+								</Nav.Item>
+								<Nav.Item>
+									<Nav.Link eventKey="detalhes">Detalhes</Nav.Link>
+								</Nav.Item>
+								<Nav.Item>
+									<Nav.Link eventKey="novo">Novo Device</Nav.Link>
+								</Nav.Item>
+							</Nav>
+						</Col>
+						<Col sm={9}>
+							<Tab.Content>
+								<Tab.Pane eventKey="devices">
+									<ListaDevices />
+								</Tab.Pane>
+								<Tab.Pane eventKey="detalhes">
+									<AdmDevices />
+								</Tab.Pane>
+								<Tab.Pane eventKey="novo">
+									<NovoDevice />
+								</Tab.Pane>
+							</Tab.Content>
+						</Col>
+					</Row>
+				</Tab.Container>
+			</div>
+		</Geral>
+	);
+};
+export default Admin;
