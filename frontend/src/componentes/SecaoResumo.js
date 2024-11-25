@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import styled from "styled-components";
 
 const SecaoResumo = () => {
@@ -8,16 +9,15 @@ const SecaoResumo = () => {
 				<h1>Solar Open</h1>
 				<h2>Monitoramento Solar</h2>
 				<p>Somos uma empresa de monitoramento residencial e empresarial</p>
-				<a href="/faleConosco" className="contact-us-btn">
-					Faça Contato
-				</a>
+				<Button className="contact-us-btn">
+					<a href="/faleConosco">Faça Contato</a>
+				</Button>
 			</Descricao>
 		</Inicio>
 	);
 };
 
 const Inicio = styled.div`
-	// Inicio vai substituir a div principal de BenvindoSection
 	min-height: 90vh;
 	display: flex;
 	align-items: center;
@@ -33,7 +33,7 @@ const Descricao = styled.div`
 
 	h1 {
 		font-weight: bold;
-		color: yellow;
+		color: #ffd159;
 	}
 	p {
 		font-size: 18px;

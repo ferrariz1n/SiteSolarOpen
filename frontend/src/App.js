@@ -7,8 +7,9 @@ import Menu from "./componentes/Menu";
 import Bemvindo from "./paginas/Bemvindo";
 import Medidas from "./paginas/Medidas";
 import Logout from "./paginas/Logout";
+import Login from "./paginas/Login";
 import DetalhesDevice from "./componentes/DetalhesDevice";
-import { LoginForm, SignupForm } from "./componentes/autentica/Autenticacao";
+// import { LoginForm, SignupForm } from "./componentes/autentica/Autenticacao";
 
 function App() {
 	return (
@@ -21,8 +22,9 @@ function App() {
 				<Route path="/medidas/:id" element={<DetalhesDevice />} />
 				<Route path="/faleConosco" element={<FaleConosco />} />
 				<Route path="/admin" element={<Admin />} />
-				<Route path="/cadastro" element={<SignupForm />} />
-				<Route path="/login" element={<LoginForm />} />
+				{/* <Route path="/cadastro" element={<SignupForm />} />
+				<Route path="/login" element={<LoginForm />} /> */}
+				<Route path="/entrar" element={<Login />} />
 				<Route path="/logout" element={<Logout />} />
 			</Routes>
 		</Router>

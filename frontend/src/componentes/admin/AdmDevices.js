@@ -14,7 +14,8 @@ const Foto = styled(Image)`
 `;
 
 const H5 = styled.div`
-	color: yellow;
+	// color: yellow;
+	color: #ffd159;
 `;
 
 const AdmDevices = () => {
